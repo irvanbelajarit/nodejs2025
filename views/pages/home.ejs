@@ -1,11 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Berhasil Masuk!!</h1>
-  </body>
-</html>
+<h1>Member Area</h1>
+<h1>Halaman Contact</h1>
+<a
+  href="/contact/add"
+  class="btn btn-primary btn-lg active mb-2"
+  role="button"
+  aria-pressed="true"
+  >Tambah Data</a
+>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nama</th>
+      <th scope="col">No Hp</th>
+      <th scope="col">Email</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% contacts.forEach(c => { %>
+    <tr>
+      <td><%= c.nama %></td>
+      <td><%= c.nohp %></td>
+      <td><%= c.email %></td>
+      <td>
+        <a href="/contact/edit/<%= c._id %>" class="btn btn-success badge"
+          >Edit</a
+        >
+        <a href="/contact/delete/<%= c._id %>" class="btn btn-danger badge"
+          >Delete</a
+        >
+
+        <!-- <form action="/contact/delete" method="post" class="d-inline">
+          <input type="hidden" name="id" value="<%= c._id %>" />
+          <button
+            type="submit"
+            class="btn btn-danger badge"
+            onclick="return confirm('Yakin Akan Dihapus ?')"
+          >
+            delete
+          </button>
+        </form> -->
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- contentFor('title') %> Member Area 1234
